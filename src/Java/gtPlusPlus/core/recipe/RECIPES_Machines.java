@@ -2106,28 +2106,56 @@ public class RECIPES_Machines {
 				ItemUtils.getItemStackFromFQRN("miscutils:item.itemBufferCore"+"8", 1),
 				ItemUtils.getItemStackFromFQRN("miscutils:item.itemBufferCore"+"9", 1),
 				ItemUtils.getItemStackFromFQRN("miscutils:item.itemBufferCore"+"10", 1)
-		};		
+		};	
+		
+		
 
-		int aCostMultiplier = GTNH ? 4 : 1;	
+		int aCostMultiplier = GTNH ? 2 : 1;	
+		int aCostMultiplier2 = GTNH ? 4: 1;
 
 		for (int i = 0; i < 10; i++) {			
-
 			ItemStack aPrevTier = (i == 0 ? CI.getTieredMachineHull(GTNH ? 2 : 1) : aOutput[i-1]);
 			aPrevTier.stackSize = GTNH ? 2 : 1;
 			int aTier = (i + 1);
-			CORE.RA.addSixSlotAssemblingRecipe(				
+			CORE.RA.addFluidReactorRecipe(
 					new ItemStack[] {
-							aPrevTier,
-							CI.getTieredComponent(OrePrefixes.plate, aTier, 4 * aCostMultiplier),
-							CI.getTieredComponent(OrePrefixes.cableGt04, i, 2 * aCostMultiplier),
-							CI.getTieredComponent(OrePrefixes.circuit, aTier, 2 * aCostMultiplier),
-							CI.getTieredComponent(OrePrefixes.screw, aTier, 6 * aCostMultiplier),
-							CI.getTieredComponent(OrePrefixes.bolt, i, 12 * (GTNH ? 2 : 1)),
-					},					
-					CI.getTieredFluid(i, (144 * 4 * aTier)), //Input Fluid					
-					aOutput[i],					
-					45 * 10 * 1 * (aTier), 
-					MaterialUtils.getVoltageForTier(i));
+							CI.getTieredGTPPMachineCasing(i == 0 ? 0 : i-1, 2 * aCostMultiplier),
+							CI.getTieredComponent(OrePrefixes.circuit, i + 1, 2 * aCostMultiplier),
+							CI.getTieredComponent(OrePrefixes.cableGt04, i, 2 * aCostMultiplier2),
+							CI.getTieredComponent(OrePrefixes.bolt, i, 12 * aCostMultiplier2),
+					},
+					new FluidStack[] {
+							CI.getTieredFluid(i, (144 * 2 * ((aTier + 1)/2))), //Input Fluid
+							CI.getTertiaryTieredFluid(i, (144 * 2 * ((aTier + 1)/2))),
+							FluidUtils.getFluidStack("molten.cobalt", (int)(72  * Math.pow(2,aTier))),
+							FluidUtils.getFluidStack("molten.lithium", (int)(72  * Math.pow(2,aTier)))
+					},
+					new ItemStack[] {
+							aOutput[i]
+					},
+					new FluidStack[0]
+					,
+					45 * 10 * 1 * (aTier) * aCostMultiplier2,
+					MaterialUtils.getVoltageForTier(i),
+					i > 2 ? i > 6 ? 5 :	i - 1 : 1
+			);
+			
+
+			
+					
+//			CORE.RA.addSixSlotAssemblingRecipe(				
+//					new ItemStack[] {
+//							aPrevTier,
+//							CI.getTieredComponent(OrePrefixes.plate, aTier, 4 * aCostMultiplier),
+//							CI.getTieredComponent(OrePrefixes.cableGt04, i, 2 * aCostMultiplier),
+//							CI.getTieredComponent(OrePrefixes.circuit, aTier, 2 * aCostMultiplier),
+//							CI.getTieredComponent(OrePrefixes.screw, aTier, 6 * aCostMultiplier),
+//							CI.getTieredComponent(OrePrefixes.bolt, i, 12 * (GTNH ? 2 : 1)),
+//					},					
+//					CI.getTieredFluid(i, (144 * 4 * aTier)), //Input Fluid					
+//					aOutput[i],					
+//					45 * 10 * 1 * (aTier), 
+//					MaterialUtils.getVoltageForTier(i));
 
 			//Energy Buffer
 			CORE.RA.addSixSlotAssemblingRecipe(				
