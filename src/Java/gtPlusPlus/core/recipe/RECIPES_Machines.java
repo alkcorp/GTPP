@@ -639,17 +639,43 @@ public class RECIPES_Machines {
 				RECIPE_IndustrialCentrifugeCasing = GregtechItemList.Casing_Centrifuge1.get(Casing_Amount);
 
 				//Industrial Centrifuge
-				RecipeUtils.addShapedGregtechRecipe(
-						CI.circuitTier5, pipeHugeStainlessSteel, CI.circuitTier5,
-						CI.component_Plate[6], EV_MACHINE_Centrifuge, CI.component_Plate[6],
-						CI.component_Plate[8], CI.machineCasing_IV, CI.component_Plate[8],
-						RECIPE_IndustrialCentrifugeController);
+//				RecipeUtils.addShapedGregtechRecipe(
+//						CI.circuitTier5, pipeHugeStainlessSteel, CI.circuitTier5,
+//						CI.component_Plate[6], EV_MACHINE_Centrifuge, CI.component_Plate[6],
+//						CI.component_Plate[8], CI.machineCasing_IV, CI.component_Plate[8],
+//						RECIPE_IndustrialCentrifugeController);
+
+				CORE.RA.addSixSlotAssemblingRecipe(
+						new ItemStack[] {
+								ItemUtils.getSimpleStack(RECIPE_IndustrialCentrifugeCasing,!GTNH ? 2 : 4),
+								ItemUtils.getItemStackOfAmountFromOreDict("plateMaragingSteel250",!GTNH ? 4 : 6),
+								ItemUtils.getSimpleStack(ItemList.Machine_EV_Centrifuge.get(1),1),
+								ItemUtils.getItemStackOfAmountFromOreDict("pipeHugeStainlessSteel",!GTNH ? 3 : 6),
+								CI.getEnergyCore(4, !GTNH ? 1 : 2),
+						}, // Input Items
+						FluidUtils.getFluidStack("molten.Inconel792",!GTNH ? 1440 : 2016), // Fluid Input
+						RECIPE_IndustrialCentrifugeController, // Output Item
+						20 * 60, // Time in Ticks
+						1920); // Eu/t
+				
 				//Centrifuge Casing
-				RecipeUtils.addShapedGregtechRecipe(
-						CI.component_Plate[6], "stickTumbaga", CI.component_Plate[6],
-						CI.component_Plate[8], "stickTumbaga", CI.component_Plate[8],
-						CI.component_Plate[6], "stickTumbaga", CI.component_Plate[6],
-						RECIPE_IndustrialCentrifugeCasing);
+//				RecipeUtils.addShapedGregtechRecipe(
+//						CI.component_Plate[6], "stickTumbaga", CI.component_Plate[6],
+//						CI.component_Plate[8], "stickTumbaga", CI.component_Plate[8],
+//						CI.component_Plate[6], "stickTumbaga", CI.component_Plate[6],
+//						RECIPE_IndustrialCentrifugeCasing);
+				CORE.RA.addSixSlotAssemblingRecipe(
+						new ItemStack[] {
+								ItemUtils.getSimpleStack(GregtechItemList.Casing_Multi_Use.get(1),1),
+								ItemUtils.getItemStackOfAmountFromOreDict("plateMaragingSteel250",!GTNH ? 4 : 8),
+								ItemUtils.getItemStackOfAmountFromOreDict("plateInconel792",!GTNH ? 2 : 6),
+								ItemUtils.getItemStackOfAmountFromOreDict("screwInconel792",!GTNH ? 8 : 24),
+						}, // Input Items
+						FluidUtils.getFluidStack("molten.Tumbaga", GTNH ? 864 : 1440), // Fluid Input
+						RECIPE_IndustrialCentrifugeCasing, // Output Item
+						20 * 12, // Time in Ticks
+						1200); // Eu/t
+				
 			}
 
 			if (CORE.ConfigSwitches.enableMultiblock_IndustrialCokeOven){
@@ -701,17 +727,46 @@ public class RECIPES_Machines {
 				RECIPE_IndustrialElectrolyzerFrame = GregtechItemList.Casing_Electrolyzer.get(Casing_Amount);
 
 				//Electrolyzer Frame Casing
-				RecipeUtils.addShapedGregtechRecipe(
-						"platePotin", "stickLongChrome", "platePotin",
-						"stickLongPotin", "frameGtPotin", "stickLongPotin",
-						"platePotin", "stickLongPotin", "platePotin",
-						RECIPE_IndustrialElectrolyzerFrame);
+//				RecipeUtils.addShapedGregtechRecipe(
+//						"platePotin", "stickLongChrome", "platePotin",
+//						"stickLongPotin", "frameGtPotin", "stickLongPotin",
+//						"platePotin", "stickLongPotin", "platePotin",
+//						RECIPE_IndustrialElectrolyzerFrame);
+				
+				
+				CORE.RA.addSixSlotAssemblingRecipe(
+						new ItemStack[] {
+								ItemUtils.getSimpleStack(GregtechItemList.Casing_Multi_Use.get(1),!GTNH ? 1 : 2),
+								ItemUtils.getItemStackOfAmountFromOreDict("plateMaragingSteel300",!GTNH ? 6 : 12),
+								ItemUtils.getItemStackOfAmountFromOreDict("stickLongPotin",!GTNH ? 12 : 20),
+								ItemUtils.getItemStackOfAmountFromOreDict("pipeHugeStainlessSteel",!GTNH ? 2 : 4),
+								ItemUtils.getItemStackOfAmountFromOreDict("screwChrome",!GTNH ? 4 : 8),
+						}, // Input Items
+						FluidUtils.getFluidStack("molten.Grisium", !GTNH ? 864 : 1440), // Fluid Input
+						RECIPE_IndustrialElectrolyzerFrame, // Output Item
+						20 * 12, // Time in Ticks
+						1200); // Eu/t
+				
 				//Industrial Electrolyzer
-				RecipeUtils.addShapedGregtechRecipe(
-						"plateStellite", CI.circuitTier5, "plateStellite",
-						CI.machineCasing_EV, EV_MACHINE_Electrolyzer, CI.machineCasing_EV,
-						"plateStellite", "rotorStellite", "plateStellite",
-						RECIPE_IndustrialElectrolyzerController);
+//				RecipeUtils.addShapedGregtechRecipe(
+//						"plateStellite", CI.circuitTier5, "plateStellite",
+//						CI.machineCasing_EV, EV_MACHINE_Electrolyzer, CI.machineCasing_EV,
+//						"plateStellite", "rotorStellite", "plateStellite",
+//						RECIPE_IndustrialElectrolyzerController);
+				
+				CORE.RA.addSixSlotAssemblingRecipe(
+						new ItemStack[] {
+								ItemUtils.getSimpleStack(ItemList.Machine_IV_Electrolyzer.get(1),!GTNH ? 1 : 1),
+								ItemUtils.getSimpleStack(RECIPE_IndustrialElectrolyzerFrame,!GTNH ? 2 : 4),
+								CI.getEnergyCore(5, !GTNH ? 1 : 2),
+								ItemUtils.getItemStackOfAmountFromOreDict("plateDoubleMaragingSteel300",!GTNH ? 8 : 12),
+								ItemUtils.getItemStackOfAmountFromOreDict("rotorWatertightSteel",!GTNH ? 16 : 24),
+								ItemUtils.getItemStackOfAmountFromOreDict("screwIncoloyMA956",!GTNH ? 12 : 20),
+						}, // Input Items
+						FluidUtils.getFluidStack("molten.Grisium",GTNH ?  2016 : 2880), // Fluid Input
+						RECIPE_IndustrialElectrolyzerController, // Output Item
+						20 * 60, // Time in Ticks
+						7680); // Eu/t
 			}
 
 			if (CORE.ConfigSwitches.enableMultiblock_IndustrialPlatePress){
@@ -739,17 +794,44 @@ public class RECIPES_Machines {
 				RECIPE_IndustrialMacerationStackFrame = GregtechItemList.Casing_MacerationStack.get(Casing_Amount);
 
 				//Maceration Frame Casing
-				RecipeUtils.addShapedGregtechRecipe(
-						"platePalladium", "platePalladium", "platePalladium",
-						"stickPlatinum", "frameGtInconel625", "stickPlatinum",
-						"platePalladium", "stickLongPalladium", "platePalladium",
-						RECIPE_IndustrialMacerationStackFrame);
+//				RecipeUtils.addShapedGregtechRecipe(
+//						"platePalladium", "platePalladium", "platePalladium",
+//						"stickPlatinum", "frameGtInconel625", "stickPlatinum",
+//						"platePalladium", "stickLongPalladium", "platePalladium",
+//						RECIPE_IndustrialMacerationStackFrame);
+				
+				CORE.RA.addSixSlotAssemblingRecipe(
+						new ItemStack[] {
+								GregtechItemList.Casing_Multi_Use.get(1),
+								ItemUtils.getItemStackOfAmountFromOreDict("platePalladium",!GTNH ? 5 : 8),
+								ItemUtils.getItemStackOfAmountFromOreDict("stickLongPalladium",!GTNH ? 2 : 4),
+								ItemUtils.getItemStackOfAmountFromOreDict("stickPlatinum",!GTNH ? 4 : 12),
+								ItemUtils.getItemStackOfAmountFromOreDict("plateRhodium",!GTNH ? 3 : 6),
+						}, // Input Items
+						FluidUtils.getFluidStack("molten.Inconel625",GTNH ? 720 : 1728), // Fluid Input
+						RECIPE_IndustrialMacerationStackFrame, // Output Item
+						20 * 60, // Time in Ticks
+						5200); // Eu/t
 				//Industrial Maceration stack
-				RecipeUtils.addShapedGregtechRecipe(
-						"plateTungstenCarbide", EV_MACHINE_Macerator, "plateTungstenCarbide",
-						HV_MACHINE_Macerator, CI.circuitTier7, HV_MACHINE_Macerator,
-						"plateTungstenCarbide", CI.machineCasing_IV, "plateTungstenCarbide",
-						RECIPE_IndustrialMacerationStackController);
+//				RecipeUtils.addShapedGregtechRecipe(
+//						"plateTungstenCarbide", EV_MACHINE_Macerator, "plateTungstenCarbide",
+//						HV_MACHINE_Macerator, CI.circuitTier7, HV_MACHINE_Macerator,
+//						"plateTungstenCarbide", CI.machineCasing_IV, "plateTungstenCarbide",
+//						RECIPE_IndustrialMacerationStackController);
+				
+				CORE.RA.addSixSlotAssemblingRecipe(
+						new ItemStack[] {
+								ItemUtils.getSimpleStack(RECIPE_IndustrialMacerationStackFrame,!GTNH ? 4 : 8),
+								ItemUtils.getSimpleStack(HV_MACHINE_Macerator,!GTNH ? 2 : 4),
+								ItemUtils.getSimpleStack(EV_MACHINE_Macerator,!GTNH ? 1 : 2),
+								ItemUtils.getItemStackOfAmountFromOreDict("plateTungstenCarbide",!GTNH ? 8 : 16),
+								ItemUtils.getItemStackOfAmountFromOreDict("boltZeron100",!GTNH ? 32 : 64),
+								CI.getEnergyCore(5, !GTNH ? 1 : 3),
+						}, // Input Items
+						FluidUtils.getFluidStack("molten.Inconel625",!GTNH ? 1440 : 2592), // Fluid Input
+						RECIPE_IndustrialMacerationStackController, // Output Item
+						20 * 80, // Time in Ticks
+						7680); // Eu/t
 			}
 
 			if (CORE.ConfigSwitches.enableMultiblock_IndustrialWireMill){
@@ -758,17 +840,44 @@ public class RECIPES_Machines {
 				RECIPE_IndustrialWireFactoryFrame = GregtechItemList.Casing_WireFactory.get(Casing_Amount);
 
 				//Wire Factory Frame Casing
-				RecipeUtils.addShapedGregtechRecipe(
-						"plateBlueSteel", "stickBlueSteel", "plateBlueSteel",
-						"stickBlueSteel", "frameGtBlueSteel", "stickBlueSteel",
-						"plateBlueSteel", "stickBlueSteel", "plateBlueSteel",
-						RECIPE_IndustrialWireFactoryFrame);
+//				RecipeUtils.addShapedGregtechRecipe(
+//						"plateBlueSteel", "stickBlueSteel", "plateBlueSteel",
+//						"stickBlueSteel", "frameGtBlueSteel", "stickBlueSteel",
+//						"plateBlueSteel", "stickBlueSteel", "plateBlueSteel",
+//						RECIPE_IndustrialWireFactoryFrame);
+				
+				CORE.RA.addSixSlotAssemblingRecipe(
+						new ItemStack[] {
+								GregtechItemList.Casing_Multi_Use.get(1),
+								ItemUtils.getItemStackOfAmountFromOreDict("plateBlueSteel",!GTNH ? 4 : 8),
+								ItemUtils.getItemStackOfAmountFromOreDict("stickBlueSteel",!GTNH ? 4 : 6),
+								ItemUtils.getItemStackOfAmountFromOreDict("plateHastelloyX",!GTNH ? 2 : 6),
+								ItemUtils.getItemStackOfAmountFromOreDict("screwNitinol60",!GTNH ? 8 : 12),
+						}, // Input Items
+						FluidUtils.getFluidStack("molten.Tungstensteel", !GTNH? 864 : 1440), // Fluid Input
+						RECIPE_IndustrialWireFactoryFrame, // Output Item
+						20 * 15, // Time in Ticks
+						4800); // Eu/t
 				//Industrial Wire Factory
-				RecipeUtils.addShapedGregtechRecipe(
-						"plateZeron100", CI.machineCasing_IV, "plateZeron100",
-						CI.circuitTier5, EV_MACHINE_Wiremill, CI.circuitTier5,
-						"plateZeron100", CI.machineCasing_IV, "plateZeron100",
-						RECIPE_IndustrialWireFactoryController);
+//				RecipeUtils.addShapedGregtechRecipe(
+//						"plateZeron100", CI.machineCasing_IV, "plateZeron100",
+//						CI.circuitTier5, EV_MACHINE_Wiremill, CI.circuitTier5,
+//						"plateZeron100", CI.machineCasing_IV, "plateZeron100",
+//						RECIPE_IndustrialWireFactoryController);
+				
+				CORE.RA.addSixSlotAssemblingRecipe(
+						new ItemStack[] {
+						ItemList.Machine_IV_Wiremill.get(1),
+						ItemUtils.getSimpleStack(RECIPE_IndustrialWireFactoryFrame,!GTNH ? 2 : 6),
+						ItemUtils.getCorrectStacktype(CI.circuitTier5,!GTNH ? 2 : 4),
+						ItemUtils.getItemStackOfAmountFromOreDict("screwZeron-100",!GTNH ? 16 : 32),
+						ItemUtils.getItemStackOfAmountFromOreDict("screwNitinol60",!GTNH ? 8 : 12),
+						CI.getEnergyCore(6, !GTNH ? 1 : 2),
+						}, // Input Items
+						FluidUtils.getFluidStack("molten.lafiumcompound",!GTNH ? 2016 : 3168), // Fluid Input
+						RECIPE_IndustrialWireFactoryController, // Output Item
+						20 * 78, // Time in Ticks
+						30720); // Eu/t
 			}
 
 
@@ -915,17 +1024,41 @@ public class RECIPES_Machines {
 				RECIPE_IndustrialBlastSmelterCoil = GregtechItemList.Casing_Coil_BlastSmelter.get(Casing_Amount);
 
 				//Blast Smelter
-				RecipeUtils.addShapedGregtechRecipe(
-						"plateZirconiumCarbide", CI.circuitTier4, "plateZirconiumCarbide",
-						cableTier4, EV_MACHINE_AlloySmelter, cableTier4,
-						"plateZirconiumCarbide", CI.circuitTier3, "plateZirconiumCarbide",
-						RECIPE_IndustrialBlastSmelterController);
+//				RecipeUtils.addShapedGregtechRecipe(
+//						"plateZirconiumCarbide", CI.circuitTier4, "plateZirconiumCarbide",
+//						cableTier4, EV_MACHINE_AlloySmelter, cableTier4,
+//						"plateZirconiumCarbide", CI.circuitTier3, "plateZirconiumCarbide",
+//						RECIPE_IndustrialBlastSmelterController);
+				
+				CORE.RA.addSixSlotAssemblingRecipe(
+						new ItemStack[] {
+								ItemUtils.getSimpleStack(RECIPE_IndustrialBlastSmelterFrame,!GTNH ? 2 : 4),
+								ItemUtils.getItemStackOfAmountFromOreDict("cableGt04Gold",!GTNH ? 4 : 8),
+								ItemUtils.getItemStackOfAmountFromOreDict("plateDoubleZirconiumCarbide",!GTNH ? 4 : 8),
+								ItemUtils.getCorrectStacktype(CI.circuitTier5,!GTNH ? 4 : 12),
+								CI.getEnergyCore(3, !GTNH ? 1 : 4),
+						}, // Input Items
+						FluidUtils.getFluidStack("molten.zirconiumcarbide",!GTNH ? 1008 : 2016), // Fluid Input
+						RECIPE_IndustrialBlastSmelterController, // Output Item
+						20 * 120, // Time in Ticks
+						500); // Eu/t
 				//Blast Smelter Frame Casing
-				RecipeUtils.addShapedGregtechRecipe(
-						"plateZirconiumCarbide", CI.component_Rod[5], "plateZirconiumCarbide",
-						CI.component_Rod[5], "frameGtTumbaga", CI.component_Rod[5],
-						"plateZirconiumCarbide", CI.component_Rod[5], "plateZirconiumCarbide",
-						RECIPE_IndustrialBlastSmelterFrame);
+//				RecipeUtils.addShapedGregtechRecipe(
+//						"plateZirconiumCarbide", CI.component_Rod[5], "plateZirconiumCarbide",
+//						CI.component_Rod[5], "frameGtTumbaga", CI.component_Rod[5],
+//						"plateZirconiumCarbide", CI.component_Rod[5], "plateZirconiumCarbide",
+//						RECIPE_IndustrialBlastSmelterFrame);
+				
+				CORE.RA.addSixSlotAssemblingRecipe(
+						new ItemStack[] {
+								ItemUtils.getItemStackOfAmountFromOreDict("frameGtTumbaga",!GTNH ? 1 : 2),
+								ItemUtils.getItemStackOfAmountFromOreDict("stickAluminium",!GTNH ? 4 : 8),
+								ItemUtils.getItemStackOfAmountFromOreDict("plateZirconiumCarbide",!GTNH ? 2 : 6),
+						}, // Input Items
+						FluidUtils.getFluidStack("molten.zirconiumcarbide",!GTNH ? 576 : 1440), // Fluid Input
+						RECIPE_IndustrialBlastSmelterFrame, // Output Item
+						20 * 15, // Time in Ticks
+						1920); // Eu/t
 				//Blast Smelter Coil
 				RecipeUtils.addShapedGregtechRecipe(
 						"plateStaballoy", "plateStaballoy", "plateStaballoy",
@@ -1577,16 +1710,47 @@ public class RECIPES_Machines {
 				cell2 = ItemUtils.simpleMetaStack("IC2:reactorVentGold:1", 1, 1);
 				ItemStack cell3 = ItemUtils.simpleMetaStack("IC2:reactorVentDiamond:1:1", 1, 1);
 
-				RecipeUtils.recipeBuilder(
-						plate, cell1, plate,
-						cell3, frame, cell2,
-						plate, gear, plate,
-						GregtechItemList.Casing_Adv_BlastFurnace.get(Casing_Amount));
-				RecipeUtils.recipeBuilder( 
-						gear,CI.getTieredCircuit(6),gear,
-						CI.robotArm_IV, GregtechItemList.Casing_Adv_BlastFurnace.get(1), CI.robotArm_IV,
-						plate, GregtechItemList.Gregtech_Computer_Cube.get(1), plate,
-						GregtechItemList.Machine_Adv_BlastFurnace.get(1));	
+//				RecipeUtils.recipeBuilder(
+//						plate, cell1, plate,
+//						cell3, frame, cell2,
+//						plate, gear, plate,
+//						GregtechItemList.Casing_Adv_BlastFurnace.get(Casing_Amount));
+				
+				CORE.RA.addSixSlotAssemblingRecipe(
+						new ItemStack[] {
+								ItemUtils.getSimpleStack(GregtechItemList.Casing_Multi_Use.get(1),!GTNH ? 2 : 4),
+								ItemUtils.getItemStackOfAmountFromOreDict("plateDoubleHastelloyW",!GTNH ? 4 : 12),
+								ItemUtils.getItemStackOfAmountFromOreDict("plateDoubleArceusAlloy2B",!GTNH ? 2 : 6),
+								ItemUtils.getItemStackOfAmountFromOreDict("gearGtZeron100",!GTNH ? 2 : 8),
+								ItemUtils.getItemStackOfAmountFromOreDict("rotorTriniumNaquadahCarbonite",!GTNH ? 2 : 8),
+								ItemUtils.getItemStackOfAmountFromOreDict("stickLongIridium",!GTNH ? 4 : 16),
+						}, // Input Items
+						FluidUtils.getFluidStack("molten.HastelloyX",!GTNH ? 1008 : 2160), // Fluid Input
+						GregtechItemList.Casing_Adv_BlastFurnace.get(Casing_Amount), // Output Item
+						20 * 20, // Time in Ticks
+						8000); // Eu/t
+				
+
+
+//				RecipeUtils.recipeBuilder( 
+//						gear,CI.getTieredCircuit(6),gear,
+//						CI.robotArm_IV, GregtechItemList.Casing_Adv_BlastFurnace.get(1), CI.robotArm_IV,
+//						plate, GregtechItemList.Gregtech_Computer_Cube.get(1), plate,
+//						GregtechItemList.Machine_Adv_BlastFurnace.get(1));	
+				
+				CORE.RA.addSixSlotAssemblingRecipe(
+						new ItemStack[] {
+								GregtechItemList.Casing_Adv_BlastFurnace.get(!GTNH ? 2 : 6),
+								GregtechItemList.Gregtech_Computer_Cube.get(!GTNH ? 1 : 2),
+								ItemUtils.getSimpleStack(CI.robotArm_IV,!GTNH ? 2 : 4),
+								ItemUtils.getItemStackOfAmountFromOreDict("plateDoubleStaballoy",!GTNH ? 8 : 32),
+								ItemUtils.getItemStackOfAmountFromOreDict("plateDoubleHastelloyN",!GTNH ? 12 : 32),
+								ItemUtils.getItemStackOfAmountFromOreDict("gearGtArceusAlloy2B",!GTNH ? 6 : 24),
+						}, // Input Items
+						FluidUtils.getFluidStack("molten.HastelloyX",!GTNH ? 1728 : 9216), // Fluid Input
+						GregtechItemList.Machine_Adv_BlastFurnace.get(1), // Output Item
+						20 * 180, // Time in Ticks
+						12000); // Eu/t
 
 				//Advanced Implosion Compressor
 				plate = ItemUtils.getItemStackOfAmountFromOreDict("plateAlloyIridium", 1);
@@ -1631,6 +1795,18 @@ public class RECIPES_Machines {
 						"plateZirconiumCarbide", EV_MACHINE_Mixer, "plateZirconiumCarbide",
 						"plateStaballoy",CI.getTieredCircuit(5),"plateStaballoy",
 						GregtechItemList.Industrial_Mixer.get(1));
+				
+				
+				CORE.RA.addSixSlotAssemblingRecipe(
+						new ItemStack[] {
+								ItemUtils.getItemStackOfAmountFromOreDict("frameGtZirconiumCarbide",1),
+								ItemUtils.getItemStackOfAmountFromOreDict("plateEglinSteel",!GTNH ? 4 : 12),
+								ItemUtils.getItemStackOfAmountFromOreDict("screwStainlessSteel",!GTNH ? 8 : 16),
+						}, // Input Items
+						FluidUtils.getFluidStack("molten.steel", !GTNH ? 576 : 1152), // Fluid Input
+						GregtechItemList.Casing_Multi_Use.get(1), // Output Item
+						20 * 10, // Time in Ticks
+						480); // Eu/t
 
 			}
 
@@ -1660,19 +1836,39 @@ public class RECIPES_Machines {
 					o_Distillery = ItemList.Machine_EV_FluidExtractor.get(1);
 					o_Extractor = ItemList.Machine_EV_Extractor.get(1);	
 				}					
-				RecipeUtils.recipeBuilder(
-						plate, CI.craftingToolHammer_Hard, plate,
-						"plateStainlessSteel", "frameGtZirconiumCarbide", "plateStainlessSteel",
-						plate, CI.craftingToolWrench, plate,
-						GregtechItemList.Casing_Multi_Use.get(Casing_Amount));
+//				RecipeUtils.recipeBuilder(
+//						plate, CI.craftingToolHammer_Hard, plate,
+//						"plateStainlessSteel", "frameGtZirconiumCarbide", "plateStainlessSteel",
+//						plate, CI.craftingToolWrench, plate,
+//						GregtechItemList.Casing_Multi_Use.get(Casing_Amount));
+				
+				//Recipe for Casing_Multi_Use
 
-				RecipeUtils.recipeBuilder( 
-						o_Compressor, o_Lathe, o_Electromagnet,
-						plate, ItemUtils.getSimpleStack(ModBlocks.blockProjectTable), plate,
-						o_Fermenter, o_Distillery, o_Extractor,
-						GregtechItemList.Industrial_MultiMachine.get(1));
+				
+
+//				RecipeUtils.recipeBuilder( 
+//						o_Compressor, o_Lathe, o_Electromagnet,
+//						plate, ItemUtils.getSimpleStack(ModBlocks.blockProjectTable), plate,
+//						o_Fermenter, o_Distillery, o_Extractor,
+//						GregtechItemList.Industrial_MultiMachine.get(1));
+				
+				CORE.RA.addSixSlotAssemblingRecipe(
+						new ItemStack[] {
+								ItemUtils.getSimpleStack(ModBlocks.blockProjectTable),
+								ItemUtils.getSimpleStack(GregtechItemList.Casing_Multi_Use.get(1),!GTNH ? 2 : 4),
+								ItemUtils.getItemStackOfAmountFromOreDict("gearGtHastelloy-W",!GTNH ? 8 : 16),
+								ItemUtils.getItemStackOfAmountFromOreDict("rotorGrisium",!GTNH ? 16 : 24),
+								ItemUtils.getSimpleStack(CI.fieldGenerator_IV,!GTNH ? 1 : 2),
+								CI.getEnergyCore(5, !GTNH ? 1 : 2),
+								
+						}, // Input Items
+						FluidUtils.getFluidStack("molten.Staballoy",GTNH ? 3600 : 9216), // Fluid Input
+						GregtechItemList.Industrial_MultiMachine.get(1), // Output Item
+						20 * 60, // Time in Ticks
+						7600); // Eu/t
+
 			}
-
+			
 
 
 
@@ -2118,6 +2314,7 @@ public class RECIPES_Machines {
 			aPrevTier.stackSize = GTNH ? 2 : 1;
 			int aTier = (i + 1);
 			CORE.RA.addFluidReactorRecipe(
+					//TODO marker
 					new ItemStack[] {
 							CI.getTieredGTPPMachineCasing(i == 0 ? 0 : i-1, 2 * aCostMultiplier),
 							CI.getTieredComponent(OrePrefixes.circuit, i + 1, 2 * aCostMultiplier),
@@ -2127,8 +2324,8 @@ public class RECIPES_Machines {
 					new FluidStack[] {
 							CI.getTieredFluid(i, (144 * 2 * ((aTier + 1)/2))), //Input Fluid
 							CI.getTertiaryTieredFluid(i, (144 * 2 * ((aTier + 1)/2))),
-							FluidUtils.getFluidStack("molten.cobalt", (int)(72  * Math.pow(2,aTier))),
-							FluidUtils.getFluidStack("molten.lithium", (int)(72  * Math.pow(2,aTier)))
+							FluidUtils.getFluidStack("molten.cobalt", (int)(36  * Math.pow(2,aTier) * aCostMultiplier)),
+							FluidUtils.getFluidStack("molten.lithium", (int)(36  * Math.pow(2,aTier) * aCostMultiplier))
 					},
 					new ItemStack[] {
 							aOutput[i]
@@ -2160,14 +2357,14 @@ public class RECIPES_Machines {
 			//Energy Buffer
 			CORE.RA.addSixSlotAssemblingRecipe(				
 					new ItemStack[] {
-							ItemUtils.getSimpleStack(aOutput[i], 4),
-							CI.getTieredComponent(OrePrefixes.plate, aTier, 8 * aCostMultiplier),
-							CI.getTieredComponent(OrePrefixes.wireGt08, i, 4 * aCostMultiplier),
-							CI.getTieredComponent(OrePrefixes.circuit, i, 4 * aCostMultiplier),
-							CI.getTieredComponent(OrePrefixes.stickLong, aTier, 4 * aCostMultiplier),
-							CI.getTieredComponent(OrePrefixes.gearGt, i, 5 * (GTNH ? 2 : 1)),
+							ItemUtils.getSimpleStack(aOutput[i], 4 * aCostMultiplier),
+							CI.getTieredComponent(OrePrefixes.plate, i, 8 * aCostMultiplier),
+							CI.getTieredComponent(OrePrefixes.wireGt08, i, 4 * aCostMultiplier2),
+							CI.getTieredComponent(OrePrefixes.circuit, i, 4 * aCostMultiplier2),
+							CI.getTieredComponent(OrePrefixes.stickLong, i, 4 * aCostMultiplier),
+							CI.getTieredComponent(OrePrefixes.gearGt, i, 5 * aCostMultiplier),
 					},					
-					CI.getTieredFluid(aTier, (144 * 16 * aTier)), //Input Fluid					
+					CI.getTieredFluid(i, (144 * 16 * aTier)), //Input Fluid					
 					aBufferOutput[i],					
 					45 * 20 * 1 * (aTier), 
 					MaterialUtils.getVoltageForTier(i));
