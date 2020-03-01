@@ -56,7 +56,6 @@ extends GregtechMeta_MultiBlockBase {
 				"Controller (front centered)",
 				"1x Input Bus",
 				"1x Output Bus",
-				"1x Input Hatch",
 				"1x Energy Hatch",
 				//"Maintenance Hatch must be at the back, centered",
 				};
